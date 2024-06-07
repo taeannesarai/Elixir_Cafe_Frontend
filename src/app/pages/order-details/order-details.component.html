@@ -1,0 +1,15 @@
+<div class="container mt-5">
+  <h2>Order Details</h2>
+  <div class="card card-white">
+    <div class="card-body" *ngIf="viewOrderDetail" >
+      <h5 class="card-title">Order: {{ orderDetail['order_id'] }}</h5>
+      <h6 class="card-text">Date : {{ orderDetail['order_date']  | date: 'dd-MM-yyyy hh:mm a' }}</h6>
+      <p class="card-text">Customer Name : {{ orderDetail['first_name']}}  {{ orderDetail['last_name']}}</p>
+      <p class="card-text">Breakfast : {{ orderDetail['breakfast_item_name']}}</p>
+      <p class="card-text">Beverages: {{ orderDetail['beverage_item_name'] }}</p>
+      <p class="card-text">Quantity: {{ orderDetail['quantity'] }}</p>
+      <p class="card-text">Total: {{ orderDetail['total_amount'] }}</p>
+      <p class="card-text">Status: {{ orderDetail['status'] == 'c' ? "Complete" : "Pending" }}</p>
+      </div>
+    </div>
+  </div>

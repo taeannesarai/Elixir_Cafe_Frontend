@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="form-container">
+    <h2 class="text-center mb-4">Create a New Beverage Item</h2>
+
+    <form #beverageForm="ngForm" (submit)="createBeverage(beverageForm)">
+      <div class="form-group">
+        <label for="item_nm" class="form-label">Item Name</label>
+        <input type="text" class="form-control" id="item_nm" name="item_nm" ngModel required placeholder="Enter Item name">
+      </div>
+      
+      <div class="form-group">
+        <label for="descrip" class="form-label">Description</label>
+        <textarea class="form-control" name="descrip" id="descrip" ngModel required placeholder="Enter description"></textarea>
+      </div>
+
+      <div class="form-group my-2">
+        <label for="img" class="form-label">Image</label>
+        <input type="file" (change)="onFileChange($event)" name="img" id="img" ngModel class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="prce" class="form-label">Price</label>
+        <input type="text" class="form-control" id="prce" name="prce" ngModel required placeholder="Enter Price of Item">
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block" [disabled]="beverageForm.invalid">Create</button>
+    </form>
+  </div>
+</div>

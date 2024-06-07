@@ -1,0 +1,54 @@
+<div class="container mt-5">
+  <div class="card card-white">
+    <div class="card-body">
+      <h2 class="card-title text-center">Add an Order</h2>
+      <a routerLink="/orders" class="btn btn-secondary mt-3">Back to Orders</a>
+      <form #orderForm="ngForm" (submit)="createOrder(orderForm)">
+        <div class="form-group">
+          <label for="u_id">User ID</label>
+          <input type="text" class="form-control" id="u_id" ngModel="{{user?.id}}" name="u_id" required readonly>
+        </div>
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" class="form-control" id="first_name" ngModel="{{user?.first_name}}" name="first_name" required readonly>
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" class="form-control" id="last_name" ngModel="{{user?.last_name}}" name="last_name" required readonly>
+        </div>
+        <div class="form-group">
+          <label for="order_date">Order Date</label>
+          <input type="datetime-local" class="form-control" id="order_date" ngModel name="order_date" required>
+        </div>
+        <div class="form-group">
+          <label for="breakfast_item_name">Breakfast Item</label>
+          <select name="breakfast_item_name" id="breakfast_item_name" ngModel required class="form-select">
+            <option value="{{breakfast.id}}" *ngFor="let breakfast of breakfasts">{{breakfast.item_name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="beverage_item_name">Beverage Item</label>
+          <select name="beverage_item_name" id="beverage_item_name" ngModel required class="form-select">
+            <option value="{{breverage.id}}" *ngFor="let breverage of beverages">{{breverage.item_name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" class="form-control" id="quantity" ngModel name="quantity" required>
+        </div>
+        <div class="form-group">
+          <label for="total_amount">Total Amount</label>
+          <input type="number" class="form-control" id="total_amount" ngModel name="total_amount" required>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select class="form-control" id="status" ngModel name="status" required>
+            <option value="complete">Complete</option>
+            <option value="pending">Pending</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-brown btn-block" [disabled]="orderForm.invalid">Add Order</button>
+      </form>
+    </div>
+  </div>
+</div>

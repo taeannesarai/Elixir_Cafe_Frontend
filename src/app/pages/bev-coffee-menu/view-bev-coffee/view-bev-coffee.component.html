@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div *ngIf="hasData" class="item-container">
+                <h2 class="text-center">{{ beverageItems['item_name'] }}</h2>
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="http://localhost:5555/uploads/{{beverageItems.image}}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <p class="card-text">Description: {{ beverageItems['description'] }}</p>
+                                <p class="card-text">Price: {{ beverageItems['price'] }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <div class="row mt-3">
+                <div class="col-md-12">
+                    <a routerLink="/beverages" class="btn btn-secondary">Back</a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="!hasData" class="text-center">
+   <h2>No item selected.</h2> 
+</div>

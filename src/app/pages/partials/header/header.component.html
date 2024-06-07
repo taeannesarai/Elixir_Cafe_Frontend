@@ -1,0 +1,53 @@
+<nav class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <a
+        routerLink="/"
+        class="d-flex justify-content-center align-items-center"
+      >
+        <img
+          src="/assets/images/CoffeeShoplogo.png"
+          alt="Coffee Shop Logo"
+          class="logo-img"
+        />
+      </a>
+    </div>
+  </div>
+  <div class="row mb-2">
+    <div class="col">
+      <div class="nav-links d-flex justify-content-center">
+        <a routerLink="/" class="nav-link d-inline-block">Home</a>
+        <a routerLink="/about" class="nav-link d-inline-block">About</a>
+        <a routerLink="/breakfast" class="nav-link d-inline-block"
+          >Breakfast Menu</a
+        >
+        <a routerLink="/beverages" class="nav-link d-inline-block"
+          >Beverages Menu</a
+        >
+        <a routerLink="/orders" class="nav-link d-inline-block">Orders</a>
+        <a routerLink="/contact" class="nav-link d-inline-block">Contact</a>
+        <a routerLink="/cart" class="nav-link d-inline-block"
+          ><i class="fi fi-rr-shopping-cart"></i
+        ></a>
+      </div>
+    </div>
+
+    <div class="col-2">
+      <ul class="navbar-nav mx-auto d-inline-flex align-items-center">
+        <li class="nav-item" *ngIf="!user">
+          <a routerLink="/login-signup" class="nav-link"
+            >Login<i class="fi fi-br-user"></i
+          ></a>
+        </li>
+        <li class="nav-item my-auto mx-3" *ngIf="user">
+          <span>{{ user.email }}</span>
+        </li>
+        <li class="nav-item" *ngIf="user">
+          <a (click)="logoutUser()" class="nav-link logout-btn"
+            >LogOut<i class="fi fi-rr-delete-user"></i
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

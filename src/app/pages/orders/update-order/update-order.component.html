@@ -1,0 +1,54 @@
+<!-- src/app/order-form/order-form.component.html -->
+<div class="container mt-5">
+  <div class="card card-white">
+    <div class="card-body">
+      <h2 class="card-title text-center">Update an Order</h2>
+      <form #orderForm="ngForm" (ngSubmit)="updateOrder(orderForm)">
+        <div class="form-group">
+          <label for="u_id">User ID</label>
+          <input type="text" class="form-control" id="u_id" ngModel="{{order?.u_id}}" name="u_id" required readonly>
+        </div>
+        <div class="form-group">
+          <label for="first_name">First Name</label>
+          <input type="text" class="form-control" id="first_name" ngModel="{{order?.first_name}}" name="first_name" required>
+        </div>
+        <div class="form-group">
+          <label for="last_name">Last Name</label>
+          <input type="text" class="form-control" id="last_name" ngModel="{{order?.last_name}}" name="last_name" required>
+        </div>
+        <div class="form-group">
+          <label for="order_date">Order Date</label>
+          <input type="datetime-local" class="form-control" id="order_date" ngModel="{{order?.order_date}}" name="order_date" required>
+        </div>
+         <div class="form-group">
+          <label for="breakfast_item_name">Breakfast Item</label>
+          <select name="breakfast_item_name" id="breakfast_item_name" ngModel required class="form-select">
+            <option value="{{breakfast.id}}" *ngFor="let breakfast of breakfasts">{{breakfast?.item_name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="beverage_item_name">Beverage Item</label>
+          <select name="beverage_item_name" id="beverage_item_name" ngModel required class="form-select">
+            <option value="{{breverage.id}}" *ngFor="let breverage of beverages">{{breverage?.item_name}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" class="form-control" id="quantity" ngModel="{{order?.quantity}}" name="quantity" required>
+        </div>
+        <div class="form-group">
+          <label for="total_amount">Total Amount</label>
+          <input type="number" class="form-control" id="total_amount" ngModel="{{order?.total_amount}}" name="total_amount" required>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select class="form-control" id="status" ngModel="{{order?.status}}" name="status" required>
+            <option value="complete">Complete</option>
+            <option value="pending">Pending</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-brown btn-block" >Update Order</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container mt-5">
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4">Create New Breakfast</h2>
+
+      <form #breakfastForm="ngForm" (submit)="createBreakfast(breakfastForm)">
+        <div class="mb-3">
+          <label for="item_nm" class="form-label">Item Name</label>
+          <input type="text" class="form-control" id="item_nm" name="item_nm" ngModel required placeholder="Enter Item name">
+        </div>
+
+        <div class="mb-3">
+          <label for="descrip" class="form-label">Description</label>
+          <textarea class="form-control" name="descrip" id="descrip" ngModel required placeholder="Enter description"></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="img" class="form-label">Image</label>
+          <input type="file" (change)="onFileChange($event)" name="img" id="img" ngModel class="form-control">
+        </div>
+
+        <div class="mb-3">
+          <label for="prce" class="form-label">Price</label>
+          <input type="text" class="form-control" id="prce" name="prce" ngModel required placeholder="Enter Price of Item">
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100" [disabled]="breakfastForm.invalid">Create</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Our Breakfast Menu</h2>
+
+  <div *ngIf="user && user['role'] == 'ADMIN'" class="mb-3 text-center">
+    <a routerLink="/admin/add-breakfast" class="btn btn-brown">Add Breakfast</a>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let item of breakfastItems">
+      <div class="card floating-card h-100">
+        <img src="http://localhost:5555/uploads/{{item.image}}" class="card-img-top" alt="{{ item['item_name'] }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ item["item_name"] }}</h5>
+          <p class="card-text">{{ item["description"] }}</p>
+          <p class="card-text">Price: {{ item["price"] | currency }}</p>
+          <button class="btn btn-primary mb-2"
+                  (click)="addToCart(item.id, item.item_name, item.image, item.price)" *ngIf="user && user['role'] == 'customer'" >Order</button>
+          <div *ngIf="user && user['role'] == 'ADMIN'" class="d-flex justify-content-between">
+            <a routerLink="/view-breakfast/{{ item['id'] }}" class="btn btn-info">View</a>
+            <a routerLink="/admin/edit-breakfast/{{ item['id'] }}" class="btn btn-warning mx-2">Edit</a>
+            <button class="btn btn-danger" (click)="deleteItem(item.id, item.item_name)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

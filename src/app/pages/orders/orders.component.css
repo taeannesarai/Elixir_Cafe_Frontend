@@ -1,0 +1,35 @@
+ .card-brown {
+      border: none;
+      border-radius: 15px; /* Rounded corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for floating effect */
+      transition: transform 0.2s; /* Smooth transformation */
+    }
+    .card-brown:hover {
+      transform: translateY(-10px); /* Slight lift on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    }
+    .card-brown .card-title,
+    .card-brown .card-text {
+      color: #A0522D;
+    }
+    .btn-brown {
+      background-color: #A0522D;
+      color: white;
+      border-radius: 5px; /* Slightly rounded buttons */
+    }
+    .btn-brown:hover {
+      background-color: #8B4513;
+      color: white;
+    }
+    .card-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .col-md-4 {
+      margin-bottom: 20px;
+    }
+
+  
+      
+    

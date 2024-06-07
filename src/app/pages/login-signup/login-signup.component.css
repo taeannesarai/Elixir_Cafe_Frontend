@@ -1,0 +1,22 @@
+.custom-card {
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.text-brown {
+  color: #6F4323;
+}
+
+.personal-info {
+  margin-bottom: 20px;
+}
+
+.link-brown {
+  color: #6F4323;
+  cursor: pointer;
+}
+
+.link-brown:hover {
+  text-decoration: underline;
+}

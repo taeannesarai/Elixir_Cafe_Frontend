@@ -1,0 +1,85 @@
+<div [ngSwitch]="isLoginOption" class="col-5 mx-auto my-5">
+    <form #loginForm="ngForm" (ngSubmit)="authSubmit(loginForm)" class="card p-3 custom-card" *ngSwitchDefault="">
+        <h1 class="text-center text-brown">
+            {{ isLoginOption ? "Login" : "Sign Up" }}
+        </h1>
+
+        <div *ngIf="!isLoginOption" class="personal-info">
+            <h2 class="text-brown">Personal Information</h2>
+            <div class="row">
+                <div class="col">
+                    <label for="f_nm" class="form-label text-brown">First Name</label>
+                    <input type="text" name="f_nm" id="f_nm" class="form-control" ngModel>
+                </div>
+                <div class="col">
+                    <label for="l_nm" class="form-label text-brown">Last Name</label>
+                    <input type="text" name="l_nm" id="l_nm" class="form-control" ngModel>
+                </div>
+            </div>
+        
+            <div class="row">
+            <div class="row">
+                <div class="col">
+                    <label for="trn" class="form-label text-brown">Tax Registration Number</label>
+                    <input type="text" name="trn" id="trn" class="form-control" ngModel>
+                </div>  
+            </div>
+        <div class="row" *ngIf="isLoginError">
+            <div class="col">
+                <p class="text-danger">{{ loginErrorMessage }}</p>
+            </div>
+        </div>
+</div>
+</div>
+        <div class="row">
+            <div class="col">
+                <label for="eml" class="form-label text-brown">Username(Email)</label>
+                <input type="email" name="eml" id="eml" class="form-control" [(ngModel)]="eml" required email />
+
+                <p *ngIf="eml && eml.length > 0 && loginForm.controls['eml'].invalid">
+                    <small class="text-danger">Please enter a valid email address.</small>
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="pw" class="form-label text-brown">Password</label>
+                <input type="password" name="pw" id="pw" class="form-control" [(ngModel)]="pw" required minlength="8" />
+
+                <p *ngIf="pw && pw.length > 0 && loginForm.controls['pw'].invalid">
+                    <small class="text-danger">Password too short.</small>
+                </p>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="!isLoginOption">
+            <div class="col">
+                <label for="pw_confirm" class="form-label text-brown">Confirm Password</label>
+                <input type="password" name="pw_confirm" id="pw_confirm" class="form-control" [(ngModel)]="pw_confirm"
+                    required minlength="8" />
+
+                <p *ngIf="pw !== pw_confirm">
+                    <small class="text-danger">Password fields do not match.</small>
+                </p>
+            </div>
+        </div>
+
+        <div class="row my-2">
+            <div class="col">
+                <input type="submit" value="{{isLoginOption ? 'Login' : 'Sign Up'}}" class="btn btn-primary w-100"
+                    [disabled]="loginForm.invalid" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p class="text-brown">
+                    {{ isLoginOption ? 'Already have an account?' : "Don't have an account?"}}
+                    <span (click)="(isLoginOption = !isLoginOption)" class="link-brown login-or-signup">{{ isLoginOption
+                        ? "Click to sign up." : "Click to login." }}</span>
+                </p>
+            </div>
+    </div>
+</form>
+</div>
+
