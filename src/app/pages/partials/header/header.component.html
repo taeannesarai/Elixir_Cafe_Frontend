@@ -36,8 +36,9 @@
       <ul class="navbar-nav mx-auto d-inline-flex align-items-center">
         <li class="nav-item" *ngIf="!user">
           <a routerLink="/login-signup" class="nav-link"
-            >Login<i class="fi fi-br-user"></i
-          ></a>
+            >Login<i class="fi fi-br-user">
+            </i>
+          </a>
         </li>
         <li class="nav-item my-auto mx-3" *ngIf="user">
           <span>{{ user.email }}</span>
